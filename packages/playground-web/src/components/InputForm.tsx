@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 import { useState, useEffect, useMemo, useCallback } from 'react';
 
 interface InputFormProps {
-  schema: z.ZodSchema;
+  schema: z.ZodType<any, any, any>;
   onSubmit: (data: Record<string, unknown>) => void;
   isLoading?: boolean;
   mockMode?: boolean;
@@ -308,7 +308,7 @@ export function InputForm({
     }
 
     // Run Zod validation on transformed values
-    const zodResolverFn = zodResolver(schema);
+    const zodResolverFn = zodResolver(schema as any);
     return zodResolverFn(transformed, context, options);
   }, [schema, fields]);
 

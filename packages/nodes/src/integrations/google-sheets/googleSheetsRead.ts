@@ -7,6 +7,7 @@ export const googleSheetsReadNode = defineNode<ReadInput, ReadOutput>({
     type: 'googleSheetsRead',
     name: 'Read Google Sheet',
     description: 'Read rows from a sheet',
+    category: 'integration',
 
     inputSchema: readInputSchema,
     outputSchema: readOutputSchema,

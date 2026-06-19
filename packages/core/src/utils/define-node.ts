@@ -19,9 +19,9 @@ export interface DefineNodeConfig<TInput, TOutput> {
   /** Category for grouping */
   category: NodeCategory;
   /** Zod schema for validating input */
-  inputSchema: z.ZodSchema<TInput>;
+  inputSchema: z.ZodType<TInput, any, any>;
   /** Zod schema for validating output */
-  outputSchema: z.ZodSchema<TOutput>;
+  outputSchema: z.ZodType<TOutput, any, any>;
   /** Executor function */
   executor: NodeExecutor<TInput, TOutput>;
   /** Estimated duration in seconds */

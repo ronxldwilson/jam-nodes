@@ -72,6 +72,11 @@ export interface NodeCredentials {
     username: string
     applicationPassword: string
   }
+  /** Slack OAuth2 credentials */
+  slack?: {
+    accessToken: string
+    teamId?: string
+  }
   /** Apify API credentials */
   apify?: {
     apiToken: string
@@ -207,9 +212,9 @@ export interface NodeDefinition<
   TOutput = unknown,
 > extends NodeMetadata {
   /** Zod schema for validating input */
-  inputSchema: z.ZodSchema<TInput>
+  inputSchema: z.ZodType<TInput, any, any>
   /** Zod schema for validating output */
-  outputSchema: z.ZodSchema<TOutput>
+  outputSchema: z.ZodType<TOutput, any, any>
   /** Executor function */
   executor: NodeExecutor<TInput, TOutput>
 }

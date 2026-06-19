@@ -62,7 +62,7 @@ export const SlackUpdateMessageOutputSchema = z.object({
 
 export const SlackGetChannelHistoryInputSchema = z.object({
   channel: z.string().min(1, 'Channel is required'),
-  limit: z.number().int().min(1).max(1000).optional().default(100),
+  limit: z.number().int().min(1).max(1000).default(100),
   oldest: z.string().optional(),
   latest: z.string().optional(),
 });
@@ -86,8 +86,8 @@ export const SlackGetChannelHistoryOutputSchema = z.object({
 
 export const SlackSearchMessagesInputSchema = z.object({
   query: z.string().min(1, 'Search query is required'),
-  sort: z.enum(['score', 'timestamp']).optional().default('score'),
-  count: z.number().int().min(1).max(100).optional().default(20),
+  sort: z.enum(['score', 'timestamp']).default('score'),
+  count: z.number().int().min(1).max(100).default(20),
 });
 
 export const SlackSearchMatchSchema = z.object({

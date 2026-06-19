@@ -49,11 +49,11 @@ export const slackSendMessageNode = defineNode({
         channel: input.channel,
         text: input.text,
       };
-      if (input.blocks) body.blocks = input.blocks;
-      if (input.attachments) body.attachments = input.attachments;
-      if (input.threadTs) body.thread_ts = input.threadTs;
-      if (input.unfurlLinks !== undefined) body.unfurl_links = input.unfurlLinks;
-      if (input.unfurlMedia !== undefined) body.unfurl_media = input.unfurlMedia;
+      if (input.blocks) body['blocks'] = input.blocks;
+      if (input.attachments) body['attachments'] = input.attachments;
+      if (input.threadTs) body['thread_ts'] = input.threadTs;
+      if (input.unfurlLinks !== undefined) body['unfurl_links'] = input.unfurlLinks;
+      if (input.unfurlMedia !== undefined) body['unfurl_media'] = input.unfurlMedia;
 
       const response = await fetchWithRetry(
         `${SLACK_API_BASE}/chat.postMessage`,

@@ -7,6 +7,7 @@ export const googleSheetsClearNode = defineNode<ClearInput, ClearOutput>({
     type: 'googleSheetsClear',
     name: 'Clear Google Sheet',
     description: 'Clear a range of cells in a sheet',
+    category: 'integration',
 
     inputSchema: clearInputSchema,
     outputSchema: clearOutputSchema,
